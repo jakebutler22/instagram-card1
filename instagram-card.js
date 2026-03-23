@@ -355,7 +355,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
       </div>
 
       <div class="caption">Jakebutler22: Here are some foxy pictures I took this year</div>
-      <div class="views">242 Views</div>
+      <div class="views">256 Views</div>
 
       <div class="source">
         ${item.source
