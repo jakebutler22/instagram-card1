@@ -1,19 +1,207 @@
 {
+  "title": "SomethingGram",
+  "author": {
+    "name": "Jake Butler",
+    "handle": "Jakebutler22",
+    "image": "https://randomfox.ca/images/1.jpg",
+    "userSince": "2026",
+    "channel": "Random Fox Daily"
+  },
   "images": [
     {
-      "Image": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1200&q=80"
+      "id": "fox-1",
+      "title": "Fox Slide 1",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 1",
+      "image": "https://randomfox.ca/images/1.jpg",
+      "thumbnail": "https://randomfox.ca/images/1.jpg",
+      "full": "https://randomfox.ca/images/1.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-01",
+      "views": "256 Views",
+      "likes": 31
     },
     {
-      "Image": "https://images.unsplash.com/photo-1516934024742-b461fba47600?auto=format&fit=crop&w=1200&q=80"
+      "id": "fox-2",
+      "title": "Fox Slide 2",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 2",
+      "image": "https://randomfox.ca/images/2.jpg",
+      "thumbnail": "https://randomfox.ca/images/2.jpg",
+      "full": "https://randomfox.ca/images/2.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-02",
+      "views": "312 Views",
+      "likes": 27
     },
     {
-      "Image": "https://images.unsplash.com/photo-1501706362039-c6e80948e07f?auto=format&fit=crop&w=1200&q=80"
+      "id": "fox-3",
+      "title": "Fox Slide 3",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 3",
+      "image": "https://randomfox.ca/images/3.jpg",
+      "thumbnail": "https://randomfox.ca/images/3.jpg",
+      "full": "https://randomfox.ca/images/3.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-03",
+      "views": "288 Views",
+      "likes": 24
     },
     {
-      "Image": "https://images.unsplash.com/photo-1497752531616-c3afd9760a11?auto=format&fit=crop&w=1200&q=80"
+      "id": "fox-4",
+      "title": "Fox Slide 4",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 4",
+      "image": "https://randomfox.ca/images/4.jpg",
+      "thumbnail": "https://randomfox.ca/images/4.jpg",
+      "full": "https://randomfox.ca/images/4.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-04",
+      "views": "341 Views",
+      "likes": 38
     },
     {
-      "Image": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80"
+      "id": "fox-5",
+      "title": "Fox Slide 5",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 5",
+      "image": "https://randomfox.ca/images/5.jpg",
+      "thumbnail": "https://randomfox.ca/images/5.jpg",
+      "full": "https://randomfox.ca/images/5.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-05",
+      "views": "295 Views",
+      "likes": 29
+    },
+    {
+      "id": "fox-6",
+      "title": "Fox Slide 6",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 6",
+      "image": "https://randomfox.ca/images/6.jpg",
+      "thumbnail": "https://randomfox.ca/images/6.jpg",
+      "full": "https://randomfox.ca/images/6.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-06",
+      "views": "267 Views",
+      "likes": 22
+    },
+    {
+      "id": "fox-7",
+      "title": "Fox Slide 7",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 7",
+      "image": "https://randomfox.ca/images/7.jpg",
+      "thumbnail": "https://randomfox.ca/images/7.jpg",
+      "full": "https://randomfox.ca/images/7.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-07",
+      "views": "319 Views",
+      "likes": 34
+    },
+    {
+      "id": "fox-8",
+      "title": "Fox Slide 8",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 8",
+      "image": "https://randomfox.ca/images/8.jpg",
+      "thumbnail": "https://randomfox.ca/images/8.jpg",
+      "full": "https://randomfox.ca/images/8.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-08",
+      "views": "276 Views",
+      "likes": 26
+    },
+    {
+      "id": "fox-9",
+      "title": "Fox Slide 9",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 9",
+      "image": "https://randomfox.ca/images/9.jpg",
+      "thumbnail": "https://randomfox.ca/images/9.jpg",
+      "full": "https://randomfox.ca/images/9.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-09",
+      "views": "301 Views",
+      "likes": 32
+    },
+    {
+      "id": "fox-10",
+      "title": "Fox Slide 10",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 10",
+      "image": "https://randomfox.ca/images/10.jpg",
+      "thumbnail": "https://randomfox.ca/images/10.jpg",
+      "full": "https://randomfox.ca/images/10.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-10",
+      "views": "333 Views",
+      "likes": 36
+    },
+    {
+      "id": "fox-11",
+      "title": "Fox Slide 11",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 11",
+      "image": "https://randomfox.ca/images/11.jpg",
+      "thumbnail": "https://randomfox.ca/images/11.jpg",
+      "full": "https://randomfox.ca/images/11.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-11",
+      "views": "284 Views",
+      "likes": 25
+    },
+    {
+      "id": "fox-12",
+      "title": "Fox Slide 12",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 12",
+      "image": "https://randomfox.ca/images/12.jpg",
+      "thumbnail": "https://randomfox.ca/images/12.jpg",
+      "full": "https://randomfox.ca/images/12.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-12",
+      "views": "347 Views",
+      "likes": 39
+    },
+    {
+      "id": "fox-13",
+      "title": "Fox Slide 13",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 13",
+      "image": "https://randomfox.ca/images/13.jpg",
+      "thumbnail": "https://randomfox.ca/images/13.jpg",
+      "full": "https://randomfox.ca/images/13.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-13",
+      "views": "298 Views",
+      "likes": 28
+    },
+    {
+      "id": "fox-14",
+      "title": "Fox Slide 14",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 14",
+      "image": "https://randomfox.ca/images/14.jpg",
+      "thumbnail": "https://randomfox.ca/images/14.jpg",
+      "full": "https://randomfox.ca/images/14.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-14",
+      "views": "326 Views",
+      "likes": 33
+    },
+    {
+      "id": "fox-15",
+      "title": "Fox Slide 15",
+      "description": "Here are some foxy pictures I took this year",
+      "alt": "Fox image 15",
+      "image": "https://randomfox.ca/images/15.jpg",
+      "thumbnail": "https://randomfox.ca/images/15.jpg",
+      "full": "https://randomfox.ca/images/15.jpg",
+      "source": "https://randomfox.ca/",
+      "dateTaken": "2026-02-15",
+      "views": "355 Views",
+      "likes": 41
     }
   ]
 }

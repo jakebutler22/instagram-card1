@@ -8,12 +8,11 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
  * `instagram-slide`
- * 
+ *
  * @demo index.html
  * @element instagram-slide
  */
 export class InstagramSlide extends DDDSuper(I18NMixin(LitElement)) {
-
   static get tag() {
     return "instagram-slide";
   }
@@ -44,19 +43,21 @@ export class InstagramSlide extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   static get styles() {
-    return [super.styles,
-    css`
-      :host {
-        display: block;
-      }
+    return [
+      super.styles,
+      css`
+        :host {
+          display: block;
+        }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-    `];
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      `,
+    ];
   }
 
   render() {
