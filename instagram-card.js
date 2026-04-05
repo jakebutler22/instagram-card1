@@ -643,10 +643,10 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
   this.loading = true;
 
   try {
-    const response = await fetch("/api/instagram-data");
+    const response = await fetch("./instagram-data.json");
 
     if (!response.ok) {
-      throw new Error(`Failed loading API data: ${response.status}`);
+      throw new Error(`Failed loading JSON data: ${response.status}`);
     }
 
     const data = await response.json();
