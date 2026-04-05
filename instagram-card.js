@@ -636,28 +636,31 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
       currentUrl.searchParams.set("activeIndex", this.activeIndex);
       window.history.replaceState({}, "", currentUrl);
     }
+ 
   }
   
-  async loadInstagramData() {
+ async loadInstagramData() {
   this.loading = true;
 
   try {
     const response = await fetch("/api/instagram-data");
 
     if (!response.ok) {
-      throw new Error("Failed loading API data");
+      throw new Error(`Failed loading API data: ${response.status}`);
     }
 
     const data = await response.json();
 
-    this.title = data.title;
-    this.author = data.author;
-    this.images = data.images;
+    this.title = data.title || "InvincibleGram";
+    this.author = data.author || {};
+    this.images = Array.isArray(data.images) ? data.images : [];
 
     this.loadSavedLikesFromLocalStorage();
     this.setInitialSlideFromUrl();
   } catch (error) {
-    console.error(error);
+    console.error("Could not load instagram data:", error);
+    this.images = [];
+    this.author = {};
   }
 
   this.loading = false;
