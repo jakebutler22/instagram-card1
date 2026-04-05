@@ -1,33 +1,44 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="Description"
+      content="Instagram style slideshow web component"
+    />
+    <title>instagram-card</title>
 
-<head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="InvincibleGram - photo gallery web component">
+    <style>
+      :root,
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--ddd-theme-default-background, #eff2f5);
+        font-family: var(--ddd-font-navigation, Arial, sans-serif);
+      }
 
-  <style>
-    :root, html, body {
-      margin: var(--ddd-spacing-0);
-      padding: var(--ddd-spacing-0);
-      background-color: #f3f3f3;
-    }
+      #demo {
+        margin: 16px;
+      }
 
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-  </style>
-  <title>InvincibleGram</title>
-</head>
+      instagram-card {
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
 
-<body>
-  <main>
+  <body>
     <div id="demo">
       <instagram-card></instagram-card>
     </div>
-  </main>
 
-  <script type="module" src="./instagram-card.js"></script>
-</body>
+    <script type="module" src="./instagram-card.js"></script>
+  </body>
 </html>

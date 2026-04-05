@@ -1,70 +1,55 @@
 /**
- * Copyright 2026 Jake Butler
- * @license Apache-2.0, see LICENSE for full text.
+ * Copyright 2026
+ * @license Apache-2.0
  */
 import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-/**
- * `instagram-slide`
- *
- * @demo index.html
- * @element instagram-slide
- */
-export class InstagramSlide extends DDDSuper(I18NMixin(LitElement)) {
+export class InstagramSlide extends LitElement {
   static get tag() {
     return "instagram-slide";
+  }
+
+  static get properties() {
+    return {
+      image: { type: String },
+      alt: { type: String },
+    };
   }
 
   constructor() {
     super();
     this.image = "";
     this.alt = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Slide",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/instagram-slide.ar.json", import.meta.url).href +
-        "/../",
-    });
-  }
-
-  static get properties() {
-    return {
-      ...super.properties,
-      image: { type: String },
-      alt: { type: String },
-    };
   }
 
   static get styles() {
-    return [
-      super.styles,
-      css`
-        :host {
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
+    return css`
+      :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
 
-        .image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-      `,
-    ];
+      .image-wrap {
+        width: 100%;
+        height: 100%;
+        background: #f2f2f4;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    `;
   }
 
   render() {
     return html`
-      <img class="image" src="${this.image}" alt="${this.alt}" fetchpriority="high">
+      <div class="image-wrap">
+        <img src="${this.image}" alt="${this.alt}" loading="lazy" />
+      </div>
     `;
   }
 }
