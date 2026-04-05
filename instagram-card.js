@@ -396,8 +396,8 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
     this.loading = true;
 
     try {
-      const dataFileUrl = new URL("./instagram-data.json", import.meta.url).href;
-      const response = await fetch(dataFileUrl);
+      
+      const response = await fetch("/api/instagram-data");
 
       if (!response.ok) {
         throw new Error(`Failed loading JSON data: ${response.status}`);
