@@ -14,16 +14,16 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
+    this.title = "SomethingGram";
     this.author = {};
     this.images = [];
     this.activeIndex = 0;
     this.loading = true;
-    this.likes = {};
+    this.likesByImageId = {};
     this.t = this.t || {};
     this.t = {
       ...this.t,
-      title: "Title",
+      title: "Title",2
     };
     this.registerLocalization({
       context: this,
@@ -41,7 +41,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
       images: { type: Array },
       activeIndex: { type: Number, reflect: true },
       loading: { type: Boolean, reflect: true },
-      likes: { type: Object },
+      likesByImageId: { type: Object },
     };
   }
 
@@ -51,230 +51,293 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          color: var(--ddd-theme-primary);
-          background-color: var(--ddd-theme-accent);
+          color: var(--ddd-theme-default-coalyGray, #262626);
           font-family: var(--ddd-font-navigation);
         }
 
-        .wrapper {
-          margin: var(--ddd-spacing-2);
+        .page-wrap {
           padding: var(--ddd-spacing-4);
         }
 
-        h3 span {
-          font-size: var(--instagram-card-label-font-size, var(--ddd-font-size-s));
-        }
-
-        .card {
-          position: relative;
+        .phone-card {
           width: 100%;
-          max-width: 760px;
+          max-width: 430px;
           margin: 0 auto;
-          padding: 24px 24px 20px;
-          background: white;
-          border: var(--ddd-border-md);
+          background: var(--ddd-theme-default-white, #ffffff);
+          border: 1px solid var(--ddd-theme-default-limestoneLight, #e4e5e7);
           border-radius: var(--ddd-radius-lg);
           box-shadow: var(--ddd-boxShadow-sm);
-          box-sizing: border-box;
+          overflow: hidden;
+        }
+
+        .app-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--ddd-spacing-4);
+          border-bottom: 1px solid var(--ddd-theme-default-limestoneLight, #e4e5e7);
         }
 
         .app-title {
-          font-size: 22px;
-          font-weight: 700;
-          margin-bottom: 20px;
-          color: #1f4fa3;
+          font-size: var(--ddd-font-size-l);
+          font-weight: var(--ddd-font-weight-bold);
+          color: var(--ddd-theme-default-beaverBlue, #1e407c);
         }
 
-        .post-shell {
+        .app-icons {
+          display: flex;
+          gap: var(--ddd-spacing-2);
+          font-size: var(--ddd-icon-xs);
+        }
+
+        .post-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: var(--ddd-spacing-3);
+          padding: var(--ddd-spacing-3) var(--ddd-spacing-4);
+        }
+
+        .post-header-left {
+          display: flex;
+          align-items: center;
+          gap: var(--ddd-spacing-3);
+          min-width: 0;
+        }
+
+        .profile-image {
+          width: 44px;
+          height: 44px;
+          border-radius: 999px;
+          object-fit: cover;
+          border: 2px solid var(--ddd-theme-default-limestoneLight, #e4e5e7);
+          background: var(--ddd-theme-default-slateLight, #ccdae6);
+          flex-shrink: 0;
+        }
+
+        .author-text {
+          min-width: 0;
+        }
+
+        .author-handle {
+          font-size: var(--ddd-font-size-s);
+          font-weight: var(--ddd-font-weight-bold);
+          color: var(--ddd-theme-default-coalyGray, #262626);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .author-channel {
+          font-size: var(--ddd-font-size-xs);
+          color: var(--ddd-theme-default-slateGray, #314d64);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .menu-button {
+          border: none;
+          background: transparent;
+          font-size: var(--ddd-icon-xs);
+          cursor: pointer;
+          color: var(--ddd-theme-default-coalyGray, #262626);
+        }
+
+        .media-wrap {
           position: relative;
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 12px;
-          max-width: 540px;
-          margin: 0 auto;
-        }
-
-        .media-frame {
-          position: relative;
-        }
-
-        .user-tag {
-          position: absolute;
-          top: 12px;
-          left: 12px;
-          background: rgba(255, 255, 255, 0.94);
-          padding: 10px 16px;
-          font-size: 18px;
-          font-weight: 600;
-          border-radius: 8px;
-          z-index: 3;
-          color: #1f4fa3;
-        }
-
-        .media-row {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 12px;
-          align-items: stretch;
-        }
-
-        .media-box {
-          position: relative;
-          background: #d9d9d9;
-          width: 100%;
+          background: var(--ddd-theme-default-limestoneMaxLight, #f2f2f4);
           aspect-ratio: 1 / 1;
           overflow: hidden;
-          border-radius: 12px;
         }
 
-        .slide-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-
-        .arrow {
+        .arrow-button {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          width: 42px;
-          height: 42px;
+          z-index: 3;
+          width: 40px;
+          height: 40px;
+          border: none;
           border-radius: 999px;
-          border: 1px solid rgba(0, 0, 0, 0.15);
-          background: rgba(255, 255, 255, 0.92);
-          color: #222;
-          display: grid;
-          place-items: center;
+          background: rgba(255, 255, 255, 0.9);
+          color: var(--ddd-theme-default-coalyGray, #262626);
+          font-size: 22px;
           cursor: pointer;
-          z-index: 4;
-          font-size: 24px;
-          line-height: 1;
-          padding: 0;
+          box-shadow: var(--ddd-boxShadow-xs);
         }
 
-        .arrow.left {
-          left: 12px;
+        .arrow-button.left {
+          left: var(--ddd-spacing-3);
         }
 
-        .arrow.right {
-          right: 12px;
+        .arrow-button.right {
+          right: var(--ddd-spacing-3);
         }
 
-        .actions {
+        .dots {
+          position: absolute;
+          left: 50%;
+          bottom: var(--ddd-spacing-3);
+          transform: translateX(-50%);
           display: flex;
-          flex-direction: column;
-          gap: 14px;
-          justify-content: center;
-          font-size: 30px;
-          color: #111;
-          min-width: 44px;
+          gap: 8px;
+          z-index: 3;
+          padding: 6px 10px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.75);
+          max-width: calc(100% - 24px);
+          overflow-x: auto;
+        }
+
+        .dots::-webkit-scrollbar {
+          height: 6px;
+        }
+
+        .dots::-webkit-scrollbar-thumb {
+          background-color: var(--ddd-theme-default-beaverBlue, #1e407c);
+          border-radius: 20px;
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
+          background: var(--ddd-theme-default-limestoneGray, #a2aaad);
+          cursor: pointer;
+          flex: 0 0 auto;
+        }
+
+        .dot.active {
+          background: var(--ddd-theme-default-beaverBlue, #1e407c);
+        }
+
+        .action-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--ddd-spacing-3) var(--ddd-spacing-4) var(--ddd-spacing-2);
+        }
+
+        .action-row-left {
+          display: flex;
+          align-items: center;
+          gap: var(--ddd-spacing-3);
         }
 
         .action-button {
           border: none;
           background: transparent;
           cursor: pointer;
-          font-size: 30px;
-          line-height: 1;
           padding: 0;
+          font-size: 28px;
+          line-height: 1;
+          color: var(--ddd-theme-default-coalyGray, #262626);
         }
 
-        .dots {
-          position: absolute;
-          left: 14px;
-          bottom: 12px;
-          display: flex;
-          gap: 8px;
-          z-index: 3;
-          flex-wrap: wrap;
-          max-width: calc(100% - 28px);
+        .action-button.liked {
+          color: var(--ddd-theme-default-original87Pink, #bc204b);
         }
 
-        .dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 999px;
-          background: #d3c8c8;
-          cursor: pointer;
+        .meta-text {
+          padding: 0 var(--ddd-spacing-4) var(--ddd-spacing-2);
+          font-size: var(--ddd-font-size-xs);
+          color: var(--ddd-theme-default-slateGray, #314d64);
         }
 
-        .dot.active {
-          background: #111;
+        .likes-text,
+        .views-text {
+          font-weight: var(--ddd-font-weight-bold);
+          color: var(--ddd-theme-default-coalyGray, #262626);
         }
 
         .caption {
-          background: #d9d9d9;
-          padding: 16px 20px;
-          font-size: 18px;
-          color: #1f4fa3;
-          border-radius: 10px;
+          padding: 0 var(--ddd-spacing-4) var(--ddd-spacing-2);
+          font-size: var(--ddd-font-size-s);
+          line-height: 1.4;
+          word-break: break-word;
         }
 
-        .views {
-          text-align: right;
-          font-size: 16px;
-          color: #222;
+        .caption-handle {
+          font-weight: var(--ddd-font-weight-bold);
+          margin-right: 4px;
         }
 
-        .likes {
-          text-align: right;
-          font-size: 16px;
-          color: #222;
+        .date-row,
+        .source-row {
+          padding: 0 var(--ddd-spacing-4) var(--ddd-spacing-2);
+          font-size: var(--ddd-font-size-xs);
+          color: var(--ddd-theme-default-slateGray, #314d64);
         }
 
-        .source {
-          text-align: right;
-          font-size: 16px;
-        }
-
-        .source a {
-          color: #1f4fa3;
+        .source-link {
+          color: var(--ddd-theme-default-link, #005fa9);
           text-decoration: none;
-          font-weight: 600;
+          font-weight: var(--ddd-font-weight-bold);
         }
 
-        .source a:hover {
+        .source-link:hover {
           text-decoration: underline;
         }
 
-        .loading {
-          max-width: 720px;
+        .loading,
+        .empty {
+          max-width: 430px;
           margin: 0 auto;
-          padding: 24px;
-          background: white;
-          border: var(--ddd-border-md);
+          padding: var(--ddd-spacing-6);
+          background: var(--ddd-theme-default-white, #ffffff);
+          border: 1px solid var(--ddd-theme-default-limestoneLight, #e4e5e7);
           border-radius: var(--ddd-radius-lg);
+          box-shadow: var(--ddd-boxShadow-sm);
+          text-align: center;
         }
 
         @media (prefers-color-scheme: dark) {
-          .card {
-            background: #181818;
-            color: #f5f5f5;
+          .phone-card,
+          .loading,
+          .empty {
+            background: #151515;
+            color: #f4f4f4;
+            border-color: #333;
+          }
+
+          .app-bar,
+          .post-header {
+            border-color: #333;
           }
 
           .app-title,
+          .source-link {
+            color: var(--ddd-theme-default-pughBlue, #96bee6);
+          }
+
+          .author-handle,
+          .likes-text,
+          .views-text,
           .caption,
-          .source a,
-          .user-tag {
-            color: #9fc2ff;
+          .action-button,
+          .menu-button {
+            color: #f4f4f4;
           }
 
-          .caption,
-          .media-box {
-            background: #2a2a2a;
+          .author-channel,
+          .meta-text,
+          .date-row,
+          .source-row {
+            color: #bfc7d1;
           }
 
-          .views,
-          .likes,
-          .actions,
-          .arrow {
-            color: #f5f5f5;
+          .media-wrap {
+            background: #222;
           }
 
-          .arrow {
-            background: rgba(24, 24, 24, 0.92);
-            border-color: rgba(255, 255, 255, 0.15);
+          .arrow-button {
+            background: rgba(0, 0, 0, 0.7);
+            color: #f4f4f4;
+          }
+
+          .dots {
+            background: rgba(0, 0, 0, 0.55);
           }
 
           .dot {
@@ -282,38 +345,58 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           }
 
           .dot.active {
-            background: #f5f5f5;
+            background: var(--ddd-theme-default-pughBlue, #96bee6);
+          }
+
+          .profile-image {
+            border-color: #444;
           }
         }
 
-        @media (max-width: 640px) {
-          .wrapper {
+        @media (max-width: 480px) {
+          .page-wrap {
             padding: var(--ddd-spacing-2);
           }
 
-          .card {
-            padding: 18px 14px 18px;
+          .phone-card {
+            border-radius: 16px;
           }
 
-          .user-tag {
-            font-size: 16px;
-            padding: 8px 12px;
-            top: 10px;
-            left: 10px;
+          .app-bar {
+            padding: var(--ddd-spacing-3);
           }
 
-          .actions {
-            font-size: 24px;
+          .post-header,
+          .action-row,
+          .caption,
+          .meta-text,
+          .date-row,
+          .source-row {
+            padding-left: var(--ddd-spacing-3);
+            padding-right: var(--ddd-spacing-3);
+          }
+
+          .author-handle {
+            font-size: 14px;
+          }
+
+          .author-channel {
+            font-size: 12px;
           }
 
           .action-button {
             font-size: 24px;
           }
 
-          .arrow {
-            width: 38px;
-            height: 38px;
+          .arrow-button {
+            width: 36px;
+            height: 36px;
             font-size: 20px;
+          }
+
+          .profile-image {
+            width: 40px;
+            height: 40px;
           }
         }
       `,
@@ -321,31 +404,31 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   async firstUpdated() {
-    await this.loadImages();
+    await this.loadInstagramData();
   }
 
   updated(changedProperties) {
     if (changedProperties.has("activeIndex") && this.images.length) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("activeIndex", this.activeIndex);
-      window.history.replaceState({}, "", url);
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set("activeIndex", this.activeIndex);
+      window.history.replaceState({}, "", currentUrl);
     }
   }
 
-  async loadImages() {
+  async loadInstagramData() {
     this.loading = true;
 
     try {
       const response = await fetch(
         new URL("./instagram-data.json", import.meta.url).href
       );
-      const data = await response.json();
-      this.title = data.title || "SomethingGram";
-      this.author = data.author || {};
-      this.images = Array.isArray(data.images) ? data.images : [];
-      this.loadLikes();
-      this.setInitialSlide();
-    } catch (e) {
+      const loadedData = await response.json();
+      this.title = loadedData.title || "SomethingGram";
+      this.author = loadedData.author || {};
+      this.images = Array.isArray(loadedData.images) ? loadedData.images : [];
+      this.loadSavedLikesFromLocalStorage();
+      this.setInitialSlideFromUrl();
+    } catch (error) {
       this.images = [];
       this.author = {};
     }
@@ -353,132 +436,233 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
     this.loading = false;
   }
 
-  setInitialSlide() {
-    const params = new URLSearchParams(window.location.search);
-    const index = Number(params.get("activeIndex"));
-    if (!Number.isNaN(index) && index >= 0 && index < this.images.length) {
-      this.activeIndex = index;
+  setInitialSlideFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialIndexFromUrl = Number(urlParams.get("activeIndex"));
+
+    if (
+      !Number.isNaN(initialIndexFromUrl) &&
+      initialIndexFromUrl >= 0 &&
+      initialIndexFromUrl < this.images.length
+    ) {
+      this.activeIndex = initialIndexFromUrl;
     } else {
       this.activeIndex = 0;
     }
   }
 
-  loadLikes() {
-    const stored = window.localStorage.getItem("instagram-card-likes");
-    this.likes = stored ? JSON.parse(stored) : {};
+  loadSavedLikesFromLocalStorage() {
+    const storedLikes = window.localStorage.getItem("instagram-card-likes");
+    this.likesByImageId = storedLikes ? JSON.parse(storedLikes) : {};
   }
 
-  saveLikes() {
+  saveLikesToLocalStorage() {
     window.localStorage.setItem(
       "instagram-card-likes",
-      JSON.stringify(this.likes)
+      JSON.stringify(this.likesByImageId)
     );
   }
 
-  toggleLike() {
-    const item = this.images[this.activeIndex];
-    if (!item) return;
-    this.likes = {
-      ...this.likes,
-      [item.id]: !this.likes[item.id],
+  toggleLikeForCurrentImage() {
+    const currentImageItem = this.images[this.activeIndex];
+
+    if (!currentImageItem) {
+      return;
+    }
+
+    this.likesByImageId = {
+      ...this.likesByImageId,
+      [currentImageItem.id]: !this.likesByImageId[currentImageItem.id],
     };
-    this.saveLikes();
+
+    this.saveLikesToLocalStorage();
   }
 
-  isLiked(item) {
-    return Boolean(this.likes[item.id]);
+  currentImageIsLiked(currentImageItem) {
+    return Boolean(this.likesByImageId[currentImageItem.id]);
   }
 
-  currentLikeCount(item) {
-    return item.likes + (this.isLiked(item) ? 1 : 0);
+  currentDisplayedLikeCount(currentImageItem) {
+    return currentImageItem.likes + (this.currentImageIsLiked(currentImageItem) ? 1 : 0);
   }
 
-  nextSlide() {
-    if (!this.images.length) return;
+  goToNextSlide() {
+    if (!this.images.length) {
+      return;
+    }
+
     this.activeIndex = (this.activeIndex + 1) % this.images.length;
   }
 
-  prevSlide() {
-    if (!this.images.length) return;
-    this.activeIndex = (this.activeIndex - 1 + this.images.length) % this.images.length;
+  goToPreviousSlide() {
+    if (!this.images.length) {
+      return;
+    }
+
+    this.activeIndex =
+      (this.activeIndex - 1 + this.images.length) % this.images.length;
   }
 
-  goToSlide(index) {
-    this.activeIndex = index;
+  goToSlideAtIndex(indexNumber) {
+    this.activeIndex = indexNumber;
+  }
+
+  shareCurrentImage() {
+    const currentImageItem = this.images[this.activeIndex];
+    const shareUrl = `${window.location.origin}${window.location.pathname}?activeIndex=${this.activeIndex}`;
+
+    if (navigator.share) {
+      navigator.share({
+        title: currentImageItem.title,
+        text: currentImageItem.description,
+        url: shareUrl,
+      });
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      window.alert("Link copied to clipboard");
+    }
   }
 
   render() {
     if (this.loading) {
       return html`
-<div class="wrapper">
-  <div class="loading">Loading images...</div>
-</div>`;
+        <div class="page-wrap">
+          <div class="loading">Loading images...</div>
+        </div>
+      `;
     }
 
     if (!this.images.length) {
       return html`
-<div class="wrapper">
-  <div class="loading">Unable to load images.</div>
-</div>`;
+        <div class="page-wrap">
+          <div class="empty">Unable to load images.</div>
+        </div>
+      `;
     }
 
-    const item = this.images[this.activeIndex];
-    const handle = this.author.handle || "Jakebutler22";
+    const currentImageItem = this.images[this.activeIndex];
+    const profileHandle = this.author.handle || "Jakebutler22";
+    const profileName = this.author.name || "Jake Butler";
+    const profileChannel = this.author.channel || "SomethingGram";
+    const profileImage = this.author.image || "";
+    const userSinceYear = this.author.userSince || "";
 
     return html`
-<div class="wrapper">
-  <div class="card">
-    <div class="app-title">${this.title}</div>
+      <div class="page-wrap">
+        <div class="phone-card">
+          <div class="app-bar">
+            <div class="app-title">${this.title}</div>
+            <div class="app-icons">✚ ✉️</div>
+          </div>
 
-    <div class="post-shell">
-      <div class="media-frame">
-        <div class="user-tag">${handle}</div>
+          <div class="post-header">
+            <div class="post-header-left">
+              <img
+                class="profile-image"
+                src="${profileImage}"
+                alt="${profileName}"
+                loading="lazy"
+              />
+              <div class="author-text">
+                <div class="author-handle">${profileHandle}</div>
+                <div class="author-channel">${profileChannel}</div>
+              </div>
+            </div>
+            <button class="menu-button" aria-label="Post options">⋯</button>
+          </div>
 
-        <div class="media-row">
-          <div class="media-box">
-            <button class="arrow left" @click=${this.prevSlide} aria-label="Previous slide">‹</button>
+          <div class="media-wrap">
+            <button
+              class="arrow-button left"
+              @click=${this.goToPreviousSlide}
+              aria-label="Previous slide"
+            >
+              ‹
+            </button>
 
-            <img
-              class="slide-image"
-              src="${item.image}"
-              alt="${item.alt}"
-              loading="lazy"
-            />
+            <instagram-slide
+              image="${currentImageItem.image}"
+              alt="${currentImageItem.alt}"
+            ></instagram-slide>
 
-            <button class="arrow right" @click=${this.nextSlide} aria-label="Next slide">›</button>
+            <button
+              class="arrow-button right"
+              @click=${this.goToNextSlide}
+              aria-label="Next slide"
+            >
+              ›
+            </button>
 
             <div class="dots">
-              ${this.images.map((slide, index) => html`
-                <div
-                  class="dot ${index === this.activeIndex ? "active" : ""}"
-                  @click=${() => this.goToSlide(index)}
-                  aria-label="Go to slide ${index + 1}"
-                ></div>
-              `)}
+              ${this.images.map(
+                (imageItem, indexNumber) => html`
+                  <div
+                    class="dot ${indexNumber === this.activeIndex ? "active" : ""}"
+                    @click=${() => this.goToSlideAtIndex(indexNumber)}
+                    aria-label="Go to slide ${indexNumber + 1}"
+                    title="${imageItem.title}"
+                  ></div>
+                `
+              )}
             </div>
           </div>
 
-          <div class="actions">
-            <button class="action-button" @click=${this.toggleLike} aria-label="Like slide">
-              ${this.isLiked(item) ? "❤️" : "🤍"}
-            </button>
-            <div>✈️</div>
+          <div class="action-row">
+            <div class="action-row-left">
+              <button
+                class="action-button ${this.currentImageIsLiked(currentImageItem) ? "liked" : ""}"
+                @click=${this.toggleLikeForCurrentImage}
+                aria-label="Like image"
+              >
+                ${this.currentImageIsLiked(currentImageItem) ? "♥" : "♡"}
+              </button>
+
+              <button class="action-button" aria-label="Comment on image">
+                💬
+              </button>
+
+              <button
+                class="action-button"
+                @click=${this.shareCurrentImage}
+                aria-label="Share image"
+              >
+                ✈
+              </button>
+            </div>
+
+            <div class="meta-text">${this.activeIndex + 1} / ${this.images.length}</div>
+          </div>
+
+          <div class="meta-text likes-text">
+            ${this.currentDisplayedLikeCount(currentImageItem)} likes
+          </div>
+
+          <div class="caption">
+            <span class="caption-handle">${profileHandle}</span>
+            ${currentImageItem.description}
+          </div>
+
+          <div class="meta-text views-text">
+            ${currentImageItem.views}
+          </div>
+
+          <div class="date-row">
+            Taken: ${currentImageItem.dateTaken} · User since ${userSinceYear}
+          </div>
+
+          <div class="source-row">
+            <a
+              class="source-link"
+              href="${currentImageItem.source}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open original source
+            </a>
           </div>
         </div>
       </div>
-
-      <div class="caption">${handle}: ${item.description}</div>
-      <div class="views">${item.views}</div>
-      <div class="likes">${this.currentLikeCount(item)} Likes</div>
-
-      <div class="source">
-        ${item.source
-          ? html`<a href="${item.source}" target="_blank" rel="noopener noreferrer">Original source</a>`
-          : ""}
-      </div>
-    </div>
-  </div>
-</div>`;
+    `;
   }
 
   static get haxProperties() {

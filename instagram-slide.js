@@ -48,9 +48,11 @@ export class InstagramSlide extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
+          width: 100%;
+          height: 100%;
         }
 
-        img {
+        .image {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -62,7 +64,7 @@ export class InstagramSlide extends DDDSuper(I18NMixin(LitElement)) {
 
   render() {
     return html`
-      <img src="${this.image}" alt="${this.alt}">
+      <img class="image" src="${this.image}" alt="${this.alt}">
     `;
   }
 }

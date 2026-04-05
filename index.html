@@ -8,29 +8,23 @@
   <meta name="Description" content="Demonstration for instagram-card">
 
   <style>
-    :root, html, body {
+    :root,
+    html,
+    body {
       margin: var(--ddd-spacing-0);
       padding: var(--ddd-spacing-0);
-      background-color: #f3f3f3;
+      background: var(--ddd-theme-default-background, #eff2f5);
+      font-family: var(--ddd-font-navigation);
     }
 
     #demo {
       margin: var(--ddd-spacing-2);
+      padding: var(--ddd-spacing-2);
     }
 
     instagram-card {
-      margin: var(--ddd-spacing-2);
       display: block;
-    }
-
-    instagram-card:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-
-    #example {
-      --instagram-card-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
+      margin: 0 auto;
     }
 
     #follow-the-white-rabbit {
@@ -42,10 +36,7 @@
 
 <body>
   <div id="demo">
-    <instagram-card
-      id="example"
-      title="Instagram Card">
-    </instagram-card>
+    <instagram-card title="SomethingGram"></instagram-card>
   </div>
 
   <script type="module" src="./instagram-card.js"></script>
