@@ -329,8 +329,8 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           }
 
           .action-button.liked {
-            color: #ff7d9b;
-            border-color: #ff7d9b;
+            color: #f5083f;
+            border-color: #ed5075;
           }
 
           .media-wrap {
