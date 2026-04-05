@@ -164,7 +164,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           bottom: 12px;
           transform: translateX(-50%);
           display: flex;
-          gap: 8px;
+          gap: 2px;
           z-index: 2;
           padding: 6px 10px;
           border-radius: 999px;
@@ -174,8 +174,8 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .dot-button {
-          width: 24px;
-          height: 24px;
+          width: 20px;
+          height: 20px;
           border-radius: 999px;
           border: none;
           background: transparent;
