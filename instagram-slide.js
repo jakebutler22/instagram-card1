@@ -48,7 +48,7 @@ export class InstagramSlide extends LitElement {
   render() {
     return html`
       <div class="image-wrap">
-        <img src="${this.image}" alt="${this.alt}" loading="lazy" />
+        <img src="${this.image}" alt="${this.alt}" fetchpriority="high" />
       </div>
     `;
   }

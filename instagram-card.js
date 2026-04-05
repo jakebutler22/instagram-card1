@@ -174,17 +174,30 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .dot-button {
-          width: 10px;
-          height: 10px;
+          width: 24px;
+          height: 24px;
           border-radius: 999px;
           border: none;
-          background: #a2aaad;
+          background: transparent;
           cursor: pointer;
           flex: 0 0 auto;
           padding: 0;
+          position: relative;
         }
 
-        .dot-button.active {
+        .dot-button::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
+          background: #a2aaad;
+        }
+
+        .dot-button.active::after {
           background: #1e407c;
         }
 
@@ -563,7 +576,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
                 class="profile-image"
                 src="${profileImage}"
                 alt="${profileName}"
-                loading="lazy"
+                loading="eager"
               />
               <div class="author-text">
                 <div class="author-handle">${profileHandle}</div>
