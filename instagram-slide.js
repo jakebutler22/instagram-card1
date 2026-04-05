@@ -64,7 +64,7 @@ export class InstagramSlide extends DDDSuper(I18NMixin(LitElement)) {
 
   render() {
     return html`
-      <img class="image" src="${this.image}" alt="${this.alt}">
+      <img class="image" src="${this.image}" alt="${this.alt}" fetchpriority="high">
     `;
   }
 }

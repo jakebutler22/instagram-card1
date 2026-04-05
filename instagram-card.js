@@ -14,7 +14,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "SomethingGram";
+    this.title = "InvincibleGram";
     this.author = {};
     this.images = [];
     this.activeIndex = 0;
@@ -23,7 +23,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
     this.t = this.t || {};
     this.t = {
       ...this.t,
-      title: "Title",2
+      title: "Title",
     };
     this.registerLocalization({
       context: this,
@@ -73,7 +73,6 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
         .app-bar {
           display: flex;
           align-items: center;
-          justify-content: space-between;
           padding: var(--ddd-spacing-4);
           border-bottom: 1px solid var(--ddd-theme-default-limestoneLight, #e4e5e7);
         }
@@ -82,12 +81,6 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           font-size: var(--ddd-font-size-l);
           font-weight: var(--ddd-font-weight-bold);
           color: var(--ddd-theme-default-beaverBlue, #1e407c);
-        }
-
-        .app-icons {
-          display: flex;
-          gap: var(--ddd-spacing-2);
-          font-size: var(--ddd-icon-xs);
         }
 
         .post-header {
@@ -115,8 +108,22 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           flex-shrink: 0;
         }
 
-        .author-text {
-          min-width: 0;
+        .author-text { min-width: 0; }
+
+        .verified-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 16px;
+          height: 16px;
+          background: #3897f0;
+          border-radius: 999px;
+          color: white;
+          font-size: 10px;
+          font-weight: bold;
+          margin-left: 4px;
+          flex-shrink: 0;
+          vertical-align: middle;
         }
 
         .author-handle {
@@ -167,13 +174,8 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           box-shadow: var(--ddd-boxShadow-xs);
         }
 
-        .arrow-button.left {
-          left: var(--ddd-spacing-3);
-        }
-
-        .arrow-button.right {
-          right: var(--ddd-spacing-3);
-        }
+        .arrow-button.left { left: var(--ddd-spacing-3); }
+        .arrow-button.right { right: var(--ddd-spacing-3); }
 
         .dots {
           position: absolute;
@@ -190,10 +192,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           overflow-x: auto;
         }
 
-        .dots::-webkit-scrollbar {
-          height: 6px;
-        }
-
+        .dots::-webkit-scrollbar { height: 6px; }
         .dots::-webkit-scrollbar-thumb {
           background-color: var(--ddd-theme-default-beaverBlue, #1e407c);
           border-radius: 20px;
@@ -206,6 +205,8 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           background: var(--ddd-theme-default-limestoneGray, #a2aaad);
           cursor: pointer;
           flex: 0 0 auto;
+          border: none;
+          padding: 0;
         }
 
         .dot.active {
@@ -235,9 +236,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           color: var(--ddd-theme-default-coalyGray, #262626);
         }
 
-        .action-button.liked {
-          color: var(--ddd-theme-default-original87Pink, #bc204b);
-        }
+        .action-button.liked { color: var(--ddd-theme-default-original87Pink, #bc204b); }
 
         .meta-text {
           padding: 0 var(--ddd-spacing-4) var(--ddd-spacing-2);
@@ -276,9 +275,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
           font-weight: var(--ddd-font-weight-bold);
         }
 
-        .source-link:hover {
-          text-decoration: underline;
-        }
+        .source-link:hover { text-decoration: underline; }
 
         .loading,
         .empty {
@@ -293,64 +290,22 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         @media (prefers-color-scheme: dark) {
-          .phone-card,
-          .loading,
-          .empty {
+          .phone-card, .loading, .empty {
             background: #151515;
             color: #f4f4f4;
             border-color: #333;
           }
-
-          .app-bar,
-          .post-header {
-            border-color: #333;
-          }
-
-          .app-title,
-          .source-link {
-            color: var(--ddd-theme-default-pughBlue, #96bee6);
-          }
-
-          .author-handle,
-          .likes-text,
-          .views-text,
-          .caption,
-          .action-button,
-          .menu-button {
-            color: #f4f4f4;
-          }
-
-          .author-channel,
-          .meta-text,
-          .date-row,
-          .source-row {
-            color: #bfc7d1;
-          }
-
-          .media-wrap {
-            background: #222;
-          }
-
-          .arrow-button {
-            background: rgba(0, 0, 0, 0.7);
-            color: #f4f4f4;
-          }
-
-          .dots {
-            background: rgba(0, 0, 0, 0.55);
-          }
-
-          .dot {
-            background: #666;
-          }
-
-          .dot.active {
-            background: var(--ddd-theme-default-pughBlue, #96bee6);
-          }
-
-          .profile-image {
-            border-color: #444;
-          }
+          .app-bar, .post-header { border-color: #333; }
+          .app-title, .source-link { color: var(--ddd-theme-default-pughBlue, #96bee6); }
+          .author-handle, .likes-text, .views-text,
+          .caption, .action-button, .menu-button { color: #f4f4f4; }
+          .author-channel, .meta-text, .date-row, .source-row { color: #bfc7d1; }
+          .media-wrap { background: #222; }
+          .arrow-button { background: rgba(0, 0, 0, 0.7); color: #f4f4f4; }
+          .dots { background: rgba(0, 0, 0, 0.55); }
+          .dot { background: #666; }
+          .dot.active { background: var(--ddd-theme-default-pughBlue, #96bee6); }
+          .profile-image { border-color: #444; }
         }
 
         @media (max-width: 480px) {
@@ -376,7 +331,23 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
             padding-right: var(--ddd-spacing-3);
           }
 
-          .author-handle {
+          .verified-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 16px;
+          height: 16px;
+          background: #3897f0;
+          border-radius: 999px;
+          color: white;
+          font-size: 10px;
+          font-weight: bold;
+          margin-left: 4px;
+          flex-shrink: 0;
+          vertical-align: middle;
+        }
+
+        .author-handle {
             font-size: 14px;
           }
 
@@ -419,11 +390,9 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
     this.loading = true;
 
     try {
-      const response = await fetch(
-        new URL("./instagram-data.json", import.meta.url).href
-      );
+      const response = await fetch("/api/instagram-data");
       const loadedData = await response.json();
-      this.title = loadedData.title || "SomethingGram";
+      this.title = loadedData.title || "InvincibleGram";
       this.author = loadedData.author || {};
       this.images = Array.isArray(loadedData.images) ? loadedData.images : [];
       this.loadSavedLikesFromLocalStorage();
@@ -543,7 +512,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
     const currentImageItem = this.images[this.activeIndex];
     const profileHandle = this.author.handle || "Jakebutler22";
     const profileName = this.author.name || "Jake Butler";
-    const profileChannel = this.author.channel || "SomethingGram";
+    const profileChannel = this.author.channel || "InvincibleGram";
     const profileImage = this.author.image || "";
     const userSinceYear = this.author.userSince || "";
 
@@ -552,7 +521,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
         <div class="phone-card">
           <div class="app-bar">
             <div class="app-title">${this.title}</div>
-            <div class="app-icons">✚ ✉️</div>
+            
           </div>
 
           <div class="post-header">
@@ -564,7 +533,10 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
                 loading="lazy"
               />
               <div class="author-text">
-                <div class="author-handle">${profileHandle}</div>
+                <div style="display:flex;align-items:center;gap:2px;">
+                  <span class="author-handle">${profileHandle}</span>
+                  <span class="verified-badge" title="Verified">✓</span>
+                </div>
                 <div class="author-channel">${profileChannel}</div>
               </div>
             </div>
@@ -596,12 +568,12 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
             <div class="dots">
               ${this.images.map(
                 (imageItem, indexNumber) => html`
-                  <div
+                  <button
                     class="dot ${indexNumber === this.activeIndex ? "active" : ""}"
                     @click=${() => this.goToSlideAtIndex(indexNumber)}
                     aria-label="Go to slide ${indexNumber + 1}"
                     title="${imageItem.title}"
-                  ></div>
+                  ></button>
                 `
               )}
             </div>
@@ -614,7 +586,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
                 @click=${this.toggleLikeForCurrentImage}
                 aria-label="Like image"
               >
-                ${this.currentImageIsLiked(currentImageItem) ? "♥" : "♡"}
+                ${this.currentImageIsLiked(currentImageItem) ? "❤️" : "🤍"}
               </button>
 
               <button class="action-button" aria-label="Comment on image">
@@ -626,7 +598,7 @@ export class InstagramCard extends DDDSuper(I18NMixin(LitElement)) {
                 @click=${this.shareCurrentImage}
                 aria-label="Share image"
               >
-                ✈
+                ✈️
               </button>
             </div>
 
