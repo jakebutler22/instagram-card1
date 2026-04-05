@@ -28,7 +28,7 @@ export default function handler(request, res) {
         thumbnail: "https://4kwallpapers.com/images/wallpapers/invincible-season-3-2048x2048-20175.png",
         full: "https://4kwallpapers.com/images/wallpapers/invincible-season-3-2048x2048-20175.png",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-01", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-2",
@@ -39,7 +39,7 @@ export default function handler(request, res) {
         thumbnail: "https://images.alphacoders.com/114/1140274.jpg",
         full: "https://images.alphacoders.com/114/1140274.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-02", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-3",
@@ -50,7 +50,7 @@ export default function handler(request, res) {
         thumbnail: "https://c4.wallpaperflare.com/wallpaper/728/77/205/invincible-mark-grayson-invincible-superhero-hd-wallpaper-preview.jpg",
         full: "https://c4.wallpaperflare.com/wallpaper/728/77/205/invincible-mark-grayson-invincible-superhero-hd-wallpaper-preview.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-03", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-4",
@@ -61,7 +61,7 @@ export default function handler(request, res) {
         thumbnail: "https://static0.colliderimages.com/wordpress/wp-content/uploads/2025/03/invincible-season-3-mark-multiverse.jpg?w=1200&h=900&fit=crop",
         full: "https://static0.colliderimages.com/wordpress/wp-content/uploads/2025/03/invincible-season-3-mark-multiverse.jpg?w=1200&h=900&fit=crop",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-04", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-5",
@@ -72,7 +72,7 @@ export default function handler(request, res) {
         thumbnail: "https://i.pinimg.com/736x/82/f1/63/82f163dcb5de22326d3c89a9b1b4b772.jpg",
         full: "https://i.pinimg.com/736x/82/f1/63/82f163dcb5de22326d3c89a9b1b4b772.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-05", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-6",
@@ -83,7 +83,7 @@ export default function handler(request, res) {
         thumbnail: "https://i.pinimg.com/736x/26/9b/05/269b052619e530b5d7f2cfe193c4fdf7.jpg",
         full: "https://i.pinimg.com/736x/26/9b/05/269b052619e530b5d7f2cfe193c4fdf7.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-06", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-7",
@@ -94,7 +94,7 @@ export default function handler(request, res) {
         thumbnail: "https://www.dexerto.com/cdn-image/wp-content/uploads/2026/04/02/Does-Mark-survive-Invincible-vs-Conquest-2-Comics-reveal-fate-after-S4E5-explained.jpg?width=1200&quality=75&format=auto",
         full: "https://www.dexerto.com/cdn-image/wp-content/uploads/2026/04/02/Does-Mark-survive-Invincible-vs-Conquest-2-Comics-reveal-fate-after-S4E5-explained.jpg?width=1200&quality=75&format=auto",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-07", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-8",
@@ -105,7 +105,7 @@ export default function handler(request, res) {
         thumbnail: "https://images2.minutemediacdn.com/image/upload/c_fill,w_1200,ar_1:1,f_auto,q_auto,g_auto/images/ImageExchange/mmsport/385/01jec3s056171qbvv6d6.jpg",
         full: "https://images2.minutemediacdn.com/image/upload/c_fill,w_1200,ar_1:1,f_auto,q_auto,g_auto/images/ImageExchange/mmsport/385/01jec3s056171qbvv6d6.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-08", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-9",
@@ -116,7 +116,7 @@ export default function handler(request, res) {
         thumbnail: "https://i.ytimg.com/vi/yYvkXGgTdfE/sddefault.jpg",
         full: "https://i.ytimg.com/vi/yYvkXGgTdfE/sddefault.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-09", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-10",
@@ -127,7 +127,7 @@ export default function handler(request, res) {
         thumbnail: "https://i.redd.it/y8crj0fz6sfb1.jpg",
         full: "https://i.redd.it/y8crj0fz6sfb1.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-10", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-11",
@@ -138,7 +138,7 @@ export default function handler(request, res) {
         thumbnail: "https://www.absolutegeeks.com/wp-content/uploads/2026/04/first-clip-from-s4-episode-5-v0-dzg0ZHByZDVlN3NnMdoNIpYArfRzKYHAiyXKBCv70J-_LyK0MPAzUDgTLICN.png.webp",
         full: "https://www.absolutegeeks.com/wp-content/uploads/2026/04/first-clip-from-s4-episode-5-v0-dzg0ZHByZDVlN3NnMdoNIpYArfRzKYHAiyXKBCv70J-_LyK0MPAzUDgTLICN.png.webp",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-11", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-12",
@@ -149,7 +149,7 @@ export default function handler(request, res) {
         thumbnail: "https://preview.redd.it/how-big-of-a-role-do-yall-think-cecils-training-played-in-v0-h0qmpr9g8koe1.jpeg?width=640&crop=smart&auto=webp&s=a2a490587a631246c5412e66b964835fe9d9d230",
         full: "https://preview.redd.it/how-big-of-a-role-do-yall-think-cecils-training-played-in-v0-h0qmpr9g8koe1.jpeg?width=640&crop=smart&auto=webp&s=a2a490587a631246c5412e66b964835fe9d9d230",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-12", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-13",
@@ -160,7 +160,7 @@ export default function handler(request, res) {
         thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6mahPXG8DzTq2wOcvMwxUa68QYkSTnjVUqA&s",
         full: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6mahPXG8DzTq2wOcvMwxUa68QYkSTnjVUqA&s",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-13", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-14",
@@ -171,7 +171,7 @@ export default function handler(request, res) {
         thumbnail: "https://i.ytimg.com/vi/1v9C45OP_8w/maxresdefault.jpg",
         full: "https://i.ytimg.com/vi/1v9C45OP_8w/maxresdefault.jpg",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-14", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
       {
         id: "inv-15",
@@ -182,7 +182,7 @@ export default function handler(request, res) {
         thumbnail: "https://preview.redd.it/this-conquest-frame-hits-different-v0-knxbu1c0ijsg1.png?width=640&crop=smart&auto=webp&s=13f31bff692d3d96a6a22df571a2b2d54fd0bf51",
         full: "https://preview.redd.it/this-conquest-frame-hits-different-v0-knxbu1c0ijsg1.png?width=640&crop=smart&auto=webp&s=13f31bff692d3d96a6a22df571a2b2d54fd0bf51",
         source: "https://www.amazon.com/invincible",
-        dateTaken: "2026-01-15", views, likes,
+        dateTaken: "April 5th, 2026 2:56pm", views, likes,
       },
     ],
   };
